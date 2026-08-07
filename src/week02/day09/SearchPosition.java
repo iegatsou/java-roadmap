@@ -1,15 +1,15 @@
-package week02.day08;
+package week02.day09;
 
 import java.util.Scanner;
 
-public class LinearSearch {
-    public static boolean numberExists(int n, int numbers[]) {
+public class SearchPosition {
+    public static int findPosition(int n, int numbers[]) {
         for (int i = 0; i < numbers.length; i++) {
             if (n == numbers[i]) {
-                return true;
+                return i;
             }
         }
-        return false;
+        return -1;
     }
 
     public static void main(String[] args) {
@@ -17,9 +17,9 @@ public class LinearSearch {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Give an integer number: ");
         int newNumber = scanner.nextInt();
-        if(numberExists(newNumber,numbers))
-            System.out.println("Found");
-        else System.out.println("Not Found");
+        if (findPosition(newNumber, numbers)==-1)
+            System.out.println("Not Found");
+        else System.out.println("Found at index " + findPosition(newNumber, numbers));
 
         scanner.close();
     }
