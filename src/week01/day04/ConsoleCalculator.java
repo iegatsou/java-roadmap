@@ -56,5 +56,7 @@ public class ConsoleCalculator {
             i=j;
         }
 
-        }}
+        }
+        scanner.close();
+        }
 }

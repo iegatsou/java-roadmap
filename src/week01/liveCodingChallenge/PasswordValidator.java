@@ -16,5 +16,6 @@ public class PasswordValidator {
         } else {
             System.out.println("Password too short.");
         }
+        scanner.close();
     }
 }
