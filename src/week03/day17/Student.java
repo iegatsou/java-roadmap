@@ -24,4 +24,8 @@ public class Student {
         return grade >= 50;
 
     }
+
+    public void setGrade(int grade) {
+        this.grade = grade;
+    }
 }
