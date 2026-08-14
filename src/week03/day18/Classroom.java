@@ -40,7 +40,8 @@ public class Classroom {
         }
         return false;
     }
-    public static int getClassroomCounter(){
+
+    public static int getClassroomCounter() {
         return classroomCounter;
 
     }
@@ -120,10 +121,29 @@ public class Classroom {
         return lowestStudent;
     }
 
-    public Student findStudentByName(String name) {
+    public Student findStudent(String name) {
 
         for (int i = 0; i < students.length; i++) {
             if (students[i] != null && students[i].getName().equalsIgnoreCase(name)) {
+                return students[i];
+            }
+        }
+        return null;
+    }
+
+    public Student findStudent(int grade) {
+        for (int i = 0; i < students.length; i++) {
+            if (students[i] != null && students[i].getGrade() == grade) {
+                return students[i];
+            }
+        }
+        return null;
+    }
+
+    public Student findStudent(String name, int grade) {
+
+        for (int i = 0; i < students.length; i++) {
+            if (students[i] != null && students[i].getName().equalsIgnoreCase(name) && students[i].getGrade() == grade) {
                 return students[i];
             }
         }

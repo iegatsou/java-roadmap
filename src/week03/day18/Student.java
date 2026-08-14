@@ -9,15 +9,26 @@ public class Student {
         if (grade >= 0) this.grade = grade;
         else System.out.println("Cannot set negative grade. Grade set to zero");
     }
+
     public Student(String name) {
-        this(name,0);
+
+        this(name, 0);
     }
-    public String getName(){
+
+    public Student() {
+        this("Unknown");
+    }
+    public String toString() {
+        return "HELLO";
+    }
+    public String getName() {
         return name;
     }
-    public int getGrade(){
+
+    public int getGrade() {
         return grade;
     }
+
     public void printInfo() {
         System.out.println(name + " - " + grade);
     }
