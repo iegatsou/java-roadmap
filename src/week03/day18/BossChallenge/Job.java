@@ -1,4 +1,4 @@
-package week03.day18.BossChallenge
+package week03.day18.BossChallenge;
 
 public class Job{
 
