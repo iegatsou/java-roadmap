@@ -24,9 +24,11 @@ public class Player {
     public void addScore(int points, int bonus) {
         score += points + bonus;
     }
-    public String getName(){
+
+    public String getName() {
         return name;
     }
+
     public int getScore() {
         return score;
     }
@@ -36,42 +38,33 @@ public class Player {
     }
 
     public static Player findHighestScore(Player[] players) {
-        Player highestScorePlayer = null;
-        int nullCounter = 0;
-        int index = 0;
+        Player highest = null;
+
         for (int i = 0; i < players.length; i++) {
-            if (players[i] == null)
-                nullCounter++;
-            else {
-                highestScorePlayer = players[i];
-                index = i;
-                break;
+            if (players[i] != null &&
+                    (highest == null || players[i].getScore() > highest.getScore())) {
+
+                highest = players[i];
             }
         }
-        if (nullCounter == players.length) {
-            return null;
-        } else {
-            for (int i = index + 1; i < players.length; i++) {
-                if (players[i] != null && players[i].getScore() > highestScorePlayer.getScore()) {
-                    highestScorePlayer = players[i];
-                }
-            }
-            return highestScorePlayer;
-        }
+
+        return highest;
     }
-    public static double calculateAverageScore(Player[] players){
-        int nonNullCounter=0;
-        double sum=0;
-        for (int i=0;i<players.length;i++){
-            if (players[i]!=null)
+
+    public static double calculateAverageScore(Player[] players) {
+        int nonNullCounter = 0;
+        double sum = 0;
+        for (int i = 0; i < players.length; i++) {
+            if (players[i] != null) {
                 nonNullCounter++;
-                sum+=players[i].score;
-        }
-        if (nonNullCounter==0)
-            return sum;
-        else {
-            return sum/nonNullCounter;
+                sum += players[i].score;
             }
         }
+        if (nonNullCounter == 0)
+            return 0;
+        else {
+            return sum / nonNullCounter;
+        }
     }
+}
 
