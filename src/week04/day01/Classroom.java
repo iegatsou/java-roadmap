@@ -1,6 +1,7 @@
 package week04.day01;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Classroom {
     private ArrayList<Student> students;
@@ -24,6 +25,19 @@ public class Classroom {
         }
 
         return students.remove(student);
+    }
+
+    public int removeStudentsBelowGrade (int minimumGrade){
+        int removedStudentsCounter=0;
+        Iterator<Student> iterator= students.iterator();
+        while (iterator.hasNext()){
+            Student nextStudent=iterator.next();
+            if (nextStudent.getGrade()<minimumGrade){
+                iterator.remove();
+                removedStudentsCounter++;
+            }
+        }
+        return removedStudentsCounter;
     }
 
     public Student findStudent(String name) {
