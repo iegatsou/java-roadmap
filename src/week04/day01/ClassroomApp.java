@@ -2,12 +2,24 @@ package week04.day01;
 
 public class ClassroomApp {
     public static void main(String[] args) {
-        Classroom classroom=new Classroom();
-        classroom.addStudent(new Student("Anna", 85));
-        classroom.addStudent(new Student("John", 46));
-        classroom.addStudent(new Student("Maria", 92));
-        classroom.addStudent(new Student("George", 38));
-        classroom.addStudent(new Student("Helen", 70));
+        Classroom classroom = new Classroom();
+        Student anna = new Student("Anna", 85);
+        Student maria = new Student("Maria", 92);
+        Student john = new Student("John", 46);
+        Student george = new Student("George", 38);
+
+        classroom.addStudent(anna);
+        classroom.addStudent(maria);
+        classroom.addStudent(john);
+        classroom.addStudent(george);
+
+        Student annaCopy = new Student("ANNA", 85);
+        System.out.println(anna == annaCopy);
+        System.out.println(anna.equals(annaCopy));
+        System.out.println(classroom.containsStudent(annaCopy));
+        System.out.println(classroom.countStudentsAboveGrade(80) + " students above 80.");
+        classroom.removeStudentsBelowGrade(50);
+        classroom.printAllStudents();
 
 //        classroom.printAllStudents();
 //        classroom.removeStudent("Anna");
@@ -25,10 +37,10 @@ public class ClassroomApp {
 //
 //        System.out.println("===Top Student===");
 //        classroom.findTopStudent().printInfo();
-        int removed = classroom.removeStudentsBelowGrade(50);
-        System.out.println("Remaining:");
-        classroom.printAllStudents();
-        System.out.println("Removed: " + removed);
+//        int removed = classroom.removeStudentsBelowGrade(50);
+//        System.out.println("Remaining:");
+//        classroom.printAllStudents();
+//        System.out.println("Removed: " + removed);
 
     }
 }

@@ -50,6 +50,19 @@ public class Classroom {
         return null;
     }
 
+    public boolean containsStudent(Student student){
+        return students.contains(student);
+    }
+    public int countStudentsAboveGrade(int minimumGrade){
+        int studentsAboveGradeCounter=0;
+        for (Student student : students){
+            if(student.getGrade()>=minimumGrade){
+                studentsAboveGradeCounter++;
+            }
+        }
+        return studentsAboveGradeCounter;
+    }
+
     public double calculateAverage() {
         if (students.isEmpty()) {
             return 0;

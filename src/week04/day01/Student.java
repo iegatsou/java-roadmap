@@ -1,4 +1,7 @@
 package week04.day01;
+import java.util.Objects;
+import java.util.Locale;
+
 
 
 public class Student {
@@ -32,9 +35,15 @@ public class Student {
 
         System.out.println(name + " - " + grade);
     }
-
+    @Override
+    public boolean equals(Object obj){
+        if (obj instanceof Student s)
+            if (this.name.equalsIgnoreCase(s.name) && this.grade==s.grade)
+                return true;
+        return false;
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(name.toLowerCase(Locale.ROOT), grade);
+    }
 }
-
-
-
-
