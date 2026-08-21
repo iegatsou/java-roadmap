@@ -31,6 +31,21 @@ public class Inventory {
     public int getProductCount(){
         return products.size();
     }
-
+    public Product findMostExpensiveProduct(){
+        Product mostExpensiveProduct=null;
+        for(Product product:products.values()){
+            if (mostExpensiveProduct==null || mostExpensiveProduct.getPrice()<product.getPrice()){
+                mostExpensiveProduct=product;
+            }
+        }
+        return mostExpensiveProduct;
+    }
+    public double calculateTotalInventoryValue(){
+        double totalInventoryValue=0;
+        for (Product product:products.values()){
+            totalInventoryValue+=product.getPrice()*product.getStock();
+        }
+        return totalInventoryValue;
+    }
 
 }
