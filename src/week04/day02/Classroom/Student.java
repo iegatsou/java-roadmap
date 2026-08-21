@@ -1,6 +1,7 @@
-package week04.day01;
-import java.util.Objects;
+package week04.day02.Classroom;
+
 import java.util.Locale;
+import java.util.Objects;
 
 
 public class Student {
@@ -43,14 +44,8 @@ public class Student {
     }
     @Override
     public int hashCode() {
-
+        
         return Objects.hash(name.toLowerCase(Locale.ROOT), grade);
 
-    }
-    public void setName(String name){
-        this.name=name;
-    }
-    public void setGrade(int grade){
-        this.grade=grade;
     }
 }

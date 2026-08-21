@@ -1,20 +1,20 @@
-package week04.day01;
+package week04.day02.Classroom;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Classroom {
-    private HashSet<Student> students;
+    private ArrayList<Student> students;
 
 
     public Classroom() {
-        this.students = new HashSet<>();
+        this.students = new ArrayList<>();
     }
 
-    public boolean addStudent(Student student) {
+    public void addStudent(Student student) {
         if (student != null) {
-                return  students.add(student);
-        } else return false;
+            students.add(student);
+        }
     }
 
     public boolean removeStudent(String name) {
@@ -27,12 +27,12 @@ public class Classroom {
         return students.remove(student);
     }
 
-    public int removeStudentsBelowGrade(int minimumGrade) {
-        int removedStudentsCounter = 0;
-        Iterator<Student> iterator = students.iterator();
-        while (iterator.hasNext()) {
-            Student nextStudent = iterator.next();
-            if (nextStudent.getGrade() < minimumGrade) {
+    public int removeStudentsBelowGrade (int minimumGrade){
+        int removedStudentsCounter=0;
+        Iterator<Student> iterator= students.iterator();
+        while (iterator.hasNext()){
+            Student nextStudent=iterator.next();
+            if (nextStudent.getGrade()<minimumGrade){
                 iterator.remove();
                 removedStudentsCounter++;
             }
@@ -50,14 +50,13 @@ public class Classroom {
         return null;
     }
 
-    public boolean containsStudent(Student student) {
+    public boolean containsStudent(Student student){
         return students.contains(student);
     }
-
-    public int countStudentsAboveGrade(int minimumGrade) {
-        int studentsAboveGradeCounter = 0;
-        for (Student student : students) {
-            if (student.getGrade() >= minimumGrade) {
+    public int countStudentsAboveGrade(int minimumGrade){
+        int studentsAboveGradeCounter=0;
+        for (Student student : students){
+            if(student.getGrade()>=minimumGrade){
                 studentsAboveGradeCounter++;
             }
         }
@@ -79,7 +78,7 @@ public class Classroom {
     }
 
     public Student findTopStudent() {
-        Student topStudent = null;
+        Student topStudent=null;
         for (Student student : students) {
             if (topStudent == null || topStudent.getGrade() < student.getGrade()) {
                 topStudent = student;
